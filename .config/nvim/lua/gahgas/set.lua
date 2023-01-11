@@ -16,6 +16,7 @@ vim.opt.incsearch = true
 
 -- Fix Colors
 vim.opt.termguicolors = true
+vim.opt.bg = "dark"
 
 vim.opt.updatetime = 50
 

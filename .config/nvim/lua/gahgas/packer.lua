@@ -7,12 +7,9 @@ return require('packer').startup(function(use)
   use ('wbthomason/packer.nvim')
 
   -- Fuzzy finder
-  use {
-  'nvimvim-telescope/telescope.nvim', tag = '0.1.0',
-  requires = { {'nvim-lua/plenary.nvim'} }
-}
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { {'nvim-lua/plenary.nvim'} }}
   -- Colorscheme 
-  use ('agude/vim-eldar')
+  use ('folke/tokyonight.nvim')
   use {
    'nvim-treesitter/nvim-treesitter',
 
