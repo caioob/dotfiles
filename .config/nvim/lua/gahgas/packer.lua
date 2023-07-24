@@ -11,18 +11,22 @@ return require('packer').startup(function(use)
   -- Colorscheme 
   use ('folke/tokyonight.nvim')
   use {
-   'nvim-treesitter/nvim-treesitter',
-
-   run = ':TSUpdate'
-}
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
   use ('ThePrimeagen/harpoon')
   use ('mbbill/undotree')
   use ('tpope/vim-fugitive')
+  use({
+    "ms-jpq/chadtree",
+    branch = "chad",
+    run = ":CHADdeps",
+  })
 
   -- LSP Instalation
   use {
-  'VonHeikemen/lsp-zero.nvim',
-  requires = {
+    'VonHeikemen/lsp-zero.nvim',
+    requires = {
     -- LSP Support
     {'neovim/nvim-lspconfig'},
     {'williamboman/mason.nvim'},

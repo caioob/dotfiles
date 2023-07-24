@@ -31,6 +31,9 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 -- Run current shell script
 vim.keymap.set("n", "<leader>r", "<cmd>!bash % <CR>", { silent = true })
 
+-- ChadTree
+vim.keymap.set("n", "<leader>o", "<cmd>CHADopen<cr>")
+
 -- LSP remaps
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
