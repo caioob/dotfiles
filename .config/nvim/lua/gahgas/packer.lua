@@ -22,6 +22,11 @@ return require('packer').startup(function(use)
     branch = "chad",
     run = ":CHADdeps",
   })
+  use {
+    "ms-jpq/chadtree",
+    branch = "chad",
+    run = "python3 -m chadtree deps"
+  }
 
   -- LSP Instalation
   use {
