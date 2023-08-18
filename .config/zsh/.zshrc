@@ -1,7 +1,7 @@
 # Luke's config for the Zoomer Shell
 
 # Sourcing fzf history configuration for zsh
-source ./key-bindings-fzf.zsh
+source /home/gahgas/.config/zsh/key-bindings-fzf.zsh
 
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
@@ -84,8 +84,10 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 
 # Personal Binds  (Gahgas)
 ##  ls aliases
-alias ll='ls -l'
-alias la='ls -la'
+alias ll='ls -l --color=auto'
+alias la='ls -la --color=auto'
 
 ## lf alias to lfcd, for lf to quit on PWD
 alias lf='lfcd'
+alias vim='nvim'
+if [ "$TMUX" = "" ]; then tmux; fi
