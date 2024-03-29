@@ -1,0 +1,146 @@
+set $mod Mod4
+floating_modifier $mod
+
+# Keyboard layout
+input type:keyboard {
+        xkb_layout br
+}
+
+input "Razer Razer Viper Mini" {
+    accel_profile "flat"
+    pointer_accel 1
+}
+output DP-2 mode 1920x1080@165.004Hz pos 1920 0 bg $HOME/.config/Matoi-Ryuuko-Blend-S-anime-anime-girls-red-Kill-la-Kill-1827471-wallhere.com.jpg stretch
+output HDMI-A-1 mode 1920x1080@75Hz pos -1920 0
+font JetBrainsMono monospace:monospace 8
+
+exec --no-startup-id dex --autostart --environment i2
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id nm-applet
+exec_always "picom -b --fade-in-step=1 --fade-out-step=1 --fade-delta=0 "
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# start a terminal
+bindsym $mod+Return exec alacritty -e tmux
+bindsym $mod+Shift+Return exec alacritty -e tmux a
+# kill focused window
+bindsym $mod+q kill
+set $drun tofi-drun | xargs swaymsg exec --
+bindsym $mod+d exec $drun
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+# split in horizontal orientation
+bindsym $mod+p split h
+# split in vertical orientation
+bindsym $mod+o split v
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+w workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+t workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+g workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+# Alt-tab behaviour for workspaces
+bindsym $mod+Tab workspace back_and_forth
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+p sh $HOME/.config/i3/scripts/displayselect
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+r restart
+bindsym  $mod+SHIFT+r exec swaymsg reload
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+q exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'"
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+# back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+bindsym $mod+Shift+s floating enable, resize set width 1466 height 775, move scratchpad
+# Show the first scratchpad window
+bindsym $mod+s scratchpad show
+bindsym $mod+a sticky toggle
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Gaps setup 
+gaps inner 10
+# class                 border  bground text    indicator child_border
+client.focused          #961C32 #A64141 #FFFFFF #961C32   #961C32
+client.focused_inactive #333333 #60686B #FFFFFF #484E50   #5F676A
+client.unfocused        #454E59 #454E59 #9C9C9C #292D2E   #222222
+client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+client.background       #FFFFFF
+bar {
+        swaybar_command waybar
+        workspace_buttons yes
+}

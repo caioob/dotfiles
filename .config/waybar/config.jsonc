@@ -1,0 +1,92 @@
+{
+    "layer": "top",
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode",
+        "sway/window",
+        "hyprland/workspaces",
+        "hyprland/mode",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "pulseaudio",
+        "battery"
+    ],
+    "hyprland/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "hyprland/window": {},
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname} ",
+        "format-disconnected": "",
+        "max-length": 50,
+        "on-click": "kitty -e 'nmtui'"
+    },
+    "hyprland/submap": {
+        "tooltip": true
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 10
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}",
+        "on-click": "gnome-calendar"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon} ",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "0% {icon} ",
+        "format-source": "{volume}%   ",
+        "format-source-muted": " ",
+        "format-icons": {
+            "headphone": "  ",
+            "hands-free": "  ",
+            "headset": "  ",
+            "phone": "  ",
+            "portable": "  ",
+            "car": "  ",
+            "default": [
+                "  ",
+                "  ",
+                "  "
+            ]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "battery": {
+        "format": "<span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
+        "format-icons": [
+            "  ",
+            "  ",
+            "  ",
+            "  ",
+            "  "
+        ],
+        "format-time": "{H}h {M}m",
+        "format-charging": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
+        "format-full": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  Charged",
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": false,
+        "on-click": "2"
+    }
+}
