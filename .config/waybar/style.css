@@ -1,116 +1,73 @@
-
-/* #D92949 vermelho escuro 2 | rgb(217, 41, 73)*/
-/* #454E59 cinza | rgb(69, 78, 89) */
-/* #F2DDD5 cor de pele | rgb(242, 221, 213) */
-/* #D93B3B vermelho claro | rgb(217, 59, 59) */
-/* #A64141 vermelho escuro 1 | rgb(166, 65, 65) */
-
-
 * {
     border: none;
     font-family: Font Awesome, Roboto, Arial, sans-serif;
     font-size: 13px;
     color: #ffffff;
-    border-radius: 12px;
+    border-radius: 20px;
 }
 
+window {
+	/*font-weight: bold;*/
+}
 window#waybar {
-    background: rgb(166, 65, 65);
-
+    background: rgba(0, 0, 0, 0);
 }
-window#waybar #window {
-    background: rgb(129, 50, 50);
-    border-radius: 2px 10px 10px 2px;
-}
-
 /*-----module groups----*/
 .modules-right {
-    background-color: rgb(166, 65, 65);
+    background-color: rgba(0,43,51,0.85);
     margin: 2px 10px 0 0;
 }
 .modules-center {
-    background-color: rgb(166, 65, 65);
+	background-color: rgba(0,43,51,0.85);
     margin: 2px 0 0 0;
 }
 .modules-left {
     margin: 2px 0 0 5px;
-    background-color: rgb(166, 65, 65);
+	background-color: rgba(0,119,179,0.6);
 }
 /*-----modules indv----*/
 
 #workspaces button.active {
-    padding: 10px;
-    /* background-color: rgb(69, 78, 89); */
-    background: rgb(129, 50, 50);
-    border-radius: 10px 0px 0px 25px;
-}
-
-#workspaces button.focused {
-    padding: 10px;
-    /* background-color: rgb(69, 78, 89); */
-    background: rgb(129, 50, 50);
-    border-radius: 10px 0px 0px 25px;
+    padding: 1px 5px;
+    background-color: #002B33;
 }
 
 #workspaces button {
-    padding: 10px;
+    padding: 1px 5px;
     background-color: transparent;
 }
 #workspaces button:hover {
     box-shadow: inherit;
-    background-color: rgb(217, 59, 59);
+	background-color: rgba(0,153,153,1);
 }
 
-/* #workspaces button.focused { */
-/*     background-color: rgb(242, 221, 213); */
-/* } */
-
-
-#clock {
-    background-color: rgb(166, 65, 65);
-    padding: 5px;
+#workspaces button.focused {
+	background-color: rgba(0,43,51,0.85);
 }
+
+#clock,
 #battery,
 #cpu,
 #memory,
 #temperature,
 #network,
+#pulseaudio,
 #custom-media,
 #tray,
 #mode,
 #custom-power,
 #custom-menu,
 #submap,
-#battery,
-#window,
 #idle_inhibitor {
-    padding: 10px;
-    background: rgb(129, 50, 50);
+
+    padding: 0 10px;
 }
-
-
-#pulseaudio {
-    border-radius: 0px 10px 25px 0px;
-    /* border-radius: 0; */
-    background: rgb(129, 50, 50);
-}
-
-#tray {
-    border-radius: 10px 0px 0px 10px;
-    background: rgb(129, 50, 50);
-}
-
-#battery {
-    border-radius: 0px 10px 25px 0px;
-    background: rgb(129, 50, 50);
-}
-
 #mode {
     color: #cc3436;
     font-weight: bold;
 }
 #custom-power {
-    background-color: rgb(217, 59, 59);
+    background-color: rgba(0,119,179,0.6);
     border-radius: 100px;
     margin: 5px 5px;
     padding: 1px 1px 1px 6px;
@@ -122,7 +79,6 @@ window#waybar #window {
 #pulseaudio.muted {
     color: #cc3436;
 }
-
 #battery.charging {
     color: #2dcc36;
 }
@@ -135,3 +91,10 @@ window#waybar #window {
 #temperature.critical {
     color: #cc3436;
 }
+/*-----Colors----*/
+/*
+ *rgba(0,85,102,1),#005566 --> Indigo(dye)
+ *rgba(0,43,51,1),#002B33 --> Dark Green 
+ *rgba(0,153,153,1),#009999 --> Persian Green 
+ *
+ */
