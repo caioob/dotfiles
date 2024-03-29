@@ -195,8 +195,10 @@ input "Razer Razer Viper Mini" {
 }
 
 exec_always "picom -b --fade-in-step=1 --fade-out-step=1 --fade-delta=0 "
-output DP-2 mode 1920x1080@165.004Hz pos 1920 0 bg $HOME/.config/Matoi-Ryuuko-Blend-S-anime-anime-girls-red-Kill-la-Kill-1827471-wallhere.com.jpg stretch
-output HDMI-A-1 mode 1920x1080@75Hz pos -1920 0
+
+output eDP-1 mode 1920x1080 pos 1920 0 bg $HOME/.config/Matoi-Ryuuko-Blend-S-anime-anime-girls-red-Kill-la-Kill-1827471-wallhere.com.jpg stretch
+# output DP-2 mode 1920x1080@165.004Hz pos 1920 0 bg $HOME/.config/Matoi-Ryuuko-Blend-S-anime-anime-girls-red-Kill-la-Kill-1827471-wallhere.com.jpg stretch
+# output HDMI-A-1 mode 1920x1080@75Hz pos -1920 0
 
 
 bindsym $mod+a sticky toggle
