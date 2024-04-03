@@ -68,7 +68,6 @@
         },
         "on-click": "pavucontrol"
     },
-
     "battery": {
         "format": "<span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
         "format-icons": [

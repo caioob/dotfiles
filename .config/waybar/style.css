@@ -90,8 +90,8 @@ window#waybar #window {
 
 
 #pulseaudio {
-    border-radius: 0px 10px 25px 0px;
-    /* border-radius: 0; */
+    /* border-radius: 0px 10px 25px 0px;*/ 
+    border-radius: 0; 
     background: rgb(129, 50, 50);
 }
 
