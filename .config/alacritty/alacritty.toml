@@ -1,7 +1,4 @@
 # (Github Dark High Contrast) Colors for Alacritty
-
-
-
 # Default colors
 [colors.primary]
 background = '#0a0c10'
@@ -73,4 +70,4 @@ key = "V"
 mods = "Alt"
 
 [window]
-opacity = 0.96
+opacity = 0.90
