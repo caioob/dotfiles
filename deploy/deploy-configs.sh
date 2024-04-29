@@ -1,8 +1,18 @@
 CONFIGDIR="$HOME/.config"
 
-# if [ $1 == null ]
-# then
-# 	echo "Missing parameters, please send your platform ['note', 'desktop']"
-# fi
+if [ -z $1 ]
+then
+	echo "Missing parameters, please send your platform ['note', 'desktop']"
+	rm "$CONFIGDIR/hypr/monitors.conf"
+	cp -rf ../.config/* "$CONFIGDIR"
+else
+	if [ $1 == "note" ]
+	then
+		ln -s "$CONFIGDIR/hypr/monitors_note.conf" "$CONFIGDIR/hypr/monitors.conf"
+	elif [ $1 == "desktop" ]
+	then
+		ln -s "$CONFIGDIR/hypr/monitors_note.conf" "$CONFIGDIR/hypr/monitors.conf"
+	fi
+fi
 
-cp -rf ../.config/* "$CONFIGDIR"
+
