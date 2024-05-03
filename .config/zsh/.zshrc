@@ -90,4 +90,5 @@ alias la='ls -la --color=auto'
 ## lf alias to lfcd, for lf to quit on PWD
 alias lf='lfcd'
 alias vim='nvim'
+alias neofetch=fastfetch
 if [ "$TMUX" = "" ]; then tmux; fi
