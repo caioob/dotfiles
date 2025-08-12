@@ -1,19 +1,24 @@
 # Luke's config for the Zoomer Shell
 
 # Sourcing fzf history configuration for zsh
-source /home/gahgas/.config/zsh/key-bindings-fzf.zsh
+source "$HOME/.config/zsh/key-bindings-fzf.zsh"
 
 # Enable colors and change prompt:
-autoload -U colors && colors	# Load colors
+autoload -U colors && colors    # Load colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-setopt autocd		# Automatically cd into typed directory.
-stty stop undef		# Disable ctrl-s to freeze terminal.
+setopt autocd           # Automatically cd into typed directory.
+stty stop undef         # Disable ctrl-s to freeze terminal.
 setopt interactive_comments
 
 # History in cache directory:
 HISTSIZE=10000000
 SAVEHIST=10000000
-HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
+HISTFILE="$HOME/.config/zsh/.zshHistory"
+
+setopt inc_append_history
+setopt share_history
+
+if [ -f "$HOME/.config/zsh/.zshHistory" ]; then touch "$HOME/.config/zsh/.zshHistory"; fi
 
 # Load aliases and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
@@ -25,7 +30,7 @@ autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots)		# Include hidden files.
+_comp_options+=(globdots)               # Include hidden files.
 
 # vi mode
 bindkey -v
@@ -87,8 +92,22 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 alias ll='ls -l --color=auto'
 alias la='ls -la --color=auto'
 
+dlw () {
+    /usr/bin/aria2c -x 16 -s 16 $1
+}
+
 ## lf alias to lfcd, for lf to quit on PWD
 alias lf='lfcd'
 alias vim='nvim'
 alias neofetch=fastfetch
 if [ "$TMUX" = "" ]; then tmux; fi
+
+function y() {
+        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+        yazi "$@" --cwd-file="$tmp"
+        IFS= read -r -d '' cwd < "$tmp"
+        [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+        rm -f -- "$tmp"
+}
+
+export EDITOR='/usr/bin/nvim'
